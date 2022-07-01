@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Группа_основных_средств">
+    <Key>
+      <PropertyRef Name="Код_группы" />
+    </Key>
+    <Property Name="Код_группы" Type="Int32" Nullable="false" />
+    <Property Name="Наименование_группы" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Годовая_норма_амортизации" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="МОЛ">
+    <Key>
+      <PropertyRef Name="Табельный_номер" />
+    </Key>
+    <Property Name="Табельный_номер" Type="Int32" Nullable="false" />
+    <Property Name="ФИО" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Дата_рождения" Type="DateTime" Precision="0" />
+    <Property Name="Адрес" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Телефон" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Основные_средства">
+    <Key>
+      <PropertyRef Name="Инвентарный_номер" />
+    </Key>
+    <Property Name="Инвентарный_номер" Type="Int32" Nullable="false" />
+    <Property Name="Наименование" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Код_группы" Type="Int32" />
+    <Property Name="Первоначальная_стоимость" Type="Int32" />
+    <Property Name="Дата_ввода_в_эксплуатацию" Type="DateTime" Precision="0" />
+    <Property Name="Код_подразделения" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Подразделение">
+    <Key>
+      <PropertyRef Name="Код_подразделения" />
+    </Key>
+    <Property Name="Код_подразделения" Type="Int32" Nullable="false" />
+    <Property Name="Наименование_подразделения" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ФИО_мол" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="DB1Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Группа_основных_средств" EntityType="Self.Группа_основных_средств" />
+    <EntitySet Name="МОЛ" EntityType="Self.МОЛ" />
+    <EntitySet Name="Основные_средства" EntityType="Self.Основные_средства" />
+    <EntitySet Name="Подразделение" EntityType="Self.Подразделение" />
+  </EntityContainer>
+</Schema>

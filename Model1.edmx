@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище DB1Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Группа основных средств">
+          <Key>
+            <PropertyRef Name="Код группы" />
+          </Key>
+          <Property Name="Код группы" Type="int" Nullable="false" />
+          <Property Name="Наименование группы" Type="nvarchar" MaxLength="50" />
+          <Property Name="Годовая норма амортизации" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="МОЛ">
+          <Key>
+            <PropertyRef Name="Табельный номер" />
+          </Key>
+          <Property Name="Табельный номер" Type="int" Nullable="false" />
+          <Property Name="ФИО" Type="nvarchar(max)" />
+          <Property Name="Дата рождения" Type="date" />
+          <Property Name="Адрес" Type="nvarchar(max)" />
+          <Property Name="Телефон" Type="int" />
+        </EntityType>
+        <EntityType Name="Основные средства">
+          <Key>
+            <PropertyRef Name="Инвентарный номер" />
+          </Key>
+          <Property Name="Инвентарный номер" Type="int" Nullable="false" />
+          <Property Name="Наименование" Type="nvarchar" MaxLength="50" />
+          <Property Name="Код группы" Type="int" />
+          <Property Name="Первоначальная стоимость" Type="int" />
+          <Property Name="Дата ввода в эксплуатацию" Type="date" />
+          <Property Name="Код подразделения" Type="int" />
+        </EntityType>
+        <EntityType Name="Подразделение">
+          <Key>
+            <PropertyRef Name="Код подразделения" />
+          </Key>
+          <Property Name="Код подразделения" Type="int" Nullable="false" />
+          <Property Name="Наименование подразделения" Type="nvarchar" MaxLength="50" />
+          <Property Name="ФИО мол" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityContainer Name="Хранилище DB1ModelContainer">
+          <EntitySet Name="Группа основных средств" EntityType="Self.Группа основных средств" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="МОЛ" EntityType="Self.МОЛ" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Основные средства" EntityType="Self.Основные средства" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Подразделение" EntityType="Self.Подразделение" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Группа_основных_средств">
+          <Key>
+            <PropertyRef Name="Код_группы" />
+          </Key>
+          <Property Name="Код_группы" Type="Int32" Nullable="false" />
+          <Property Name="Наименование_группы" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Годовая_норма_амортизации" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="МОЛ">
+          <Key>
+            <PropertyRef Name="Табельный_номер" />
+          </Key>
+          <Property Name="Табельный_номер" Type="Int32" Nullable="false" />
+          <Property Name="ФИО" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Дата_рождения" Type="DateTime" Precision="0" />
+          <Property Name="Адрес" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Телефон" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Основные_средства">
+          <Key>
+            <PropertyRef Name="Инвентарный_номер" />
+          </Key>
+          <Property Name="Инвентарный_номер" Type="Int32" Nullable="false" />
+          <Property Name="Наименование" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Код_группы" Type="Int32" />
+          <Property Name="Первоначальная_стоимость" Type="Int32" />
+          <Property Name="Дата_ввода_в_эксплуатацию" Type="DateTime" Precision="0" />
+          <Property Name="Код_подразделения" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Подразделение">
+          <Key>
+            <PropertyRef Name="Код_подразделения" />
+          </Key>
+          <Property Name="Код_подразделения" Type="Int32" Nullable="false" />
+          <Property Name="Наименование_подразделения" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ФИО_мол" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="DB1Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Группа_основных_средств" EntityType="Self.Группа_основных_средств" />
+          <EntitySet Name="МОЛ" EntityType="Self.МОЛ" />
+          <EntitySet Name="Основные_средства" EntityType="Self.Основные_средства" />
+          <EntitySet Name="Подразделение" EntityType="Self.Подразделение" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище DB1ModelContainer" CdmEntityContainer="DB1Entities">
+          <EntitySetMapping Name="Группа_основных_средств">
+            <EntityTypeMapping TypeName="DB1Model.Группа_основных_средств">
+              <MappingFragment StoreEntitySet="Группа основных средств">
+                <ScalarProperty Name="Код_группы" ColumnName="Код группы" />
+                <ScalarProperty Name="Наименование_группы" ColumnName="Наименование группы" />
+                <ScalarProperty Name="Годовая_норма_амортизации" ColumnName="Годовая норма амортизации" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="МОЛ">
+            <EntityTypeMapping TypeName="DB1Model.МОЛ">
+              <MappingFragment StoreEntitySet="МОЛ">
+                <ScalarProperty Name="Табельный_номер" ColumnName="Табельный номер" />
+                <ScalarProperty Name="ФИО" ColumnName="ФИО" />
+                <ScalarProperty Name="Дата_рождения" ColumnName="Дата рождения" />
+                <ScalarProperty Name="Адрес" ColumnName="Адрес" />
+                <ScalarProperty Name="Телефон" ColumnName="Телефон" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Основные_средства">
+            <EntityTypeMapping TypeName="DB1Model.Основные_средства">
+              <MappingFragment StoreEntitySet="Основные средства">
+                <ScalarProperty Name="Инвентарный_номер" ColumnName="Инвентарный номер" />
+                <ScalarProperty Name="Наименование" ColumnName="Наименование" />
+                <ScalarProperty Name="Код_группы" ColumnName="Код группы" />
+                <ScalarProperty Name="Первоначальная_стоимость" ColumnName="Первоначальная стоимость" />
+                <ScalarProperty Name="Дата_ввода_в_эксплуатацию" ColumnName="Дата ввода в эксплуатацию" />
+                <ScalarProperty Name="Код_подразделения" ColumnName="Код подразделения" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Подразделение">
+            <EntityTypeMapping TypeName="DB1Model.Подразделение">
+              <MappingFragment StoreEntitySet="Подразделение">
+                <ScalarProperty Name="Код_подразделения" ColumnName="Код подразделения" />
+                <ScalarProperty Name="Наименование_подразделения" ColumnName="Наименование подразделения" />
+                <ScalarProperty Name="ФИО_мол" ColumnName="ФИО мол" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище DB1Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Группа основных средств">
+    <Key>
+      <PropertyRef Name="Код группы" />
+    </Key>
+    <Property Name="Код группы" Type="int" Nullable="false" />
+    <Property Name="Наименование группы" Type="nvarchar" MaxLength="50" />
+    <Property Name="Годовая норма амортизации" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="МОЛ">
+    <Key>
+      <PropertyRef Name="Табельный номер" />
+    </Key>
+    <Property Name="Табельный номер" Type="int" Nullable="false" />
+    <Property Name="ФИО" Type="nvarchar(max)" />
+    <Property Name="Дата рождения" Type="date" />
+    <Property Name="Адрес" Type="nvarchar(max)" />
+    <Property Name="Телефон" Type="int" />
+  </EntityType>
+  <EntityType Name="Основные средства">
+    <Key>
+      <PropertyRef Name="Инвентарный номер" />
+    </Key>
+    <Property Name="Инвентарный номер" Type="int" Nullable="false" />
+    <Property Name="Наименование" Type="nvarchar" MaxLength="50" />
+    <Property Name="Код группы" Type="int" />
+    <Property Name="Первоначальная стоимость" Type="int" />
+    <Property Name="Дата ввода в эксплуатацию" Type="date" />
+    <Property Name="Код подразделения" Type="int" />
+  </EntityType>
+  <EntityType Name="Подразделение">
+    <Key>
+      <PropertyRef Name="Код подразделения" />
+    </Key>
+    <Property Name="Код подразделения" Type="int" Nullable="false" />
+    <Property Name="Наименование подразделения" Type="nvarchar" MaxLength="50" />
+    <Property Name="ФИО мол" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityContainer Name="Хранилище DB1ModelContainer">
+    <EntitySet Name="Группа основных средств" EntityType="Self.Группа основных средств" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="МОЛ" EntityType="Self.МОЛ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Основные средства" EntityType="Self.Основные средства" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Подразделение" EntityType="Self.Подразделение" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

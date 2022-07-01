@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище DB1ModelContainer" CdmEntityContainer="DB1Entities">
+    <EntitySetMapping Name="Группа_основных_средств">
+      <EntityTypeMapping TypeName="DB1Model.Группа_основных_средств">
+        <MappingFragment StoreEntitySet="Группа основных средств">
+          <ScalarProperty Name="Код_группы" ColumnName="Код группы" />
+          <ScalarProperty Name="Наименование_группы" ColumnName="Наименование группы" />
+          <ScalarProperty Name="Годовая_норма_амортизации" ColumnName="Годовая норма амортизации" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="МОЛ">
+      <EntityTypeMapping TypeName="DB1Model.МОЛ">
+        <MappingFragment StoreEntitySet="МОЛ">
+          <ScalarProperty Name="Табельный_номер" ColumnName="Табельный номер" />
+          <ScalarProperty Name="ФИО" ColumnName="ФИО" />
+          <ScalarProperty Name="Дата_рождения" ColumnName="Дата рождения" />
+          <ScalarProperty Name="Адрес" ColumnName="Адрес" />
+          <ScalarProperty Name="Телефон" ColumnName="Телефон" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Основные_средства">
+      <EntityTypeMapping TypeName="DB1Model.Основные_средства">
+        <MappingFragment StoreEntitySet="Основные средства">
+          <ScalarProperty Name="Инвентарный_номер" ColumnName="Инвентарный номер" />
+          <ScalarProperty Name="Наименование" ColumnName="Наименование" />
+          <ScalarProperty Name="Код_группы" ColumnName="Код группы" />
+          <ScalarProperty Name="Первоначальная_стоимость" ColumnName="Первоначальная стоимость" />
+          <ScalarProperty Name="Дата_ввода_в_эксплуатацию" ColumnName="Дата ввода в эксплуатацию" />
+          <ScalarProperty Name="Код_подразделения" ColumnName="Код подразделения" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Подразделение">
+      <EntityTypeMapping TypeName="DB1Model.Подразделение">
+        <MappingFragment StoreEntitySet="Подразделение">
+          <ScalarProperty Name="Код_подразделения" ColumnName="Код подразделения" />
+          <ScalarProperty Name="Наименование_подразделения" ColumnName="Наименование подразделения" />
+          <ScalarProperty Name="ФИО_мол" ColumnName="ФИО мол" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
